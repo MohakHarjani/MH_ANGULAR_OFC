@@ -1,0 +1,43 @@
+<h1>Register Book</h1>
+
+<!--==================================================================================================-->
+
+<label for="bookId">Book Id : </label>
+<input id='bookId' type='number' [(ngModel)]="myBook.bookId" disabled><br><br>
+
+<label for='bookName'>Book Name : </label>
+<input id='bookName' type='text' [(ngModel)]="myBook.bookName"><br><br>
+
+<label for='bookPrice'>Book Price : </label>
+<input id='bookPrice' type='number' [(ngModel)]="myBook.bookPrice"><br><br>
+
+<button (click)="addBook()">Add Book</button>
+
+<hr>
+
+<!--==================================================================================================-->
+
+<h3>Current Book Details</h3>
+@if (myBook.bookId != 0 || myBook.bookName != '' || myBook.bookPrice != 0)
+{
+<div> 
+  Book Id : {{myBook.bookId}}, 
+  Book Name : {{myBook.bookName}},
+  Book Price: {{myBook.bookPrice}}
+</div>
+
+}
+@else {
+  <p>Book details not entered yet....</p>
+}
+<hr>
+
+<!--==================================================================================================-->
+<h3>Status</h3>
+
+<p>{{status}}</p>
+
+<hr>
+<!--==================================================================================================-->
+    
+

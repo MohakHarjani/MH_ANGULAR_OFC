@@ -1,0 +1,25 @@
+<!--We cannot use "red" only.....of we write "red" i will search for a property of AppComponent class, but it is not present....
+if we had "red : string" inside the class of component
+
+
+first constructor of directive will be called first, then after that these values will override the defaul values 
+
+
+-->
+<div appHighlight [initcolor] = "'red'" [color2] = "'pink'">
+  <p>Hi All</p>
+</div>
+
+<p appHighlight>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur obcaecati modi possimus ullam quaerat eius, deleniti adipisci architecto ipsam incidunt doloremque quia, nemo atque animi expedita ad? Quia, aliquid nisi.
+</p>
+
+
+<p [appChangeFontSize]="'200%'" [clickFontSize]="'100%'">
+  Hi Mohakkkkkkkkkkk
+</p>
+
+
+<p domchange>
+  HELLO SOMETHING WILL BE APPENDED ON MOUSE ENTER
+</p>
