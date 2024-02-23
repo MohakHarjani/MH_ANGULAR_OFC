@@ -1,0 +1,43 @@
+<h1>Application Title : {{title}}</h1>
+
+<h2>---------------Output Binding Example ( CLASS -> UI )------------------------</h2>
+<h3>Sample Book</h3>
+<div>
+    <div>Book Name : {{sampleBook.bookName}} </div>
+    <div>Book Price : {{sampleBook.bookPrice}} </div>
+</div>
+<hr><br><br>
+
+<h2>---------------Input Binding Example ( UI -> CLASS )------------------------</h2>
+
+<label for = 'favBookName'>Favourite Book Name : </label>
+<input id = 'favBookName' type = 'text' #favBookNameInput><br>
+<label for = 'favBookPrice'>Favourite Book Price : </label>
+<input type = 'number' id = 'favBookPrice' #favBookPriceInput><br>
+<button (click) = "addBookDetails(favBookNameInput, favBookPriceInput)">Submit Details</button>
+
+@if (favouriteBook) 
+{
+<h3>Favourite Book details : </h3>
+<div>
+    <div>Book Name : {{favouriteBook.bookName}} </div>
+    <div>Book Price : {{favouriteBook.bookPrice}} </div>
+</div>
+}
+<hr><br><br>
+
+<h2>--------------- Two Way Binding ------------------------</h2>
+
+<label for = 'newBookName'>Favourite Book Name : </label>
+<input id = 'newBookName' type = 'text'  [(ngModel)] = 'newBook.bookName'><br>
+<label for = 'newBookPrice'>Favourite Book Price : </label>
+<input type = 'number' id = 'newBookPrice' [(ngModel)] = 'newBook.bookPrice'><br>
+
+
+<h3>New Book details : </h3>
+<div>
+    <div>Book Name : {{newBook.bookName}} </div>
+    <div>Book Price : {{newBook.bookPrice}} </div>
+</div>
+
+<hr><br><br>
