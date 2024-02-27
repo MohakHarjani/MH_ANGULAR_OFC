@@ -1,14 +1,24 @@
 {
   "books": [
     {
-      "bookName": "CoreJava",
-      "bookPrice": 5000,
-      "id": 1
+      "id": 2,
+      "bookName": "Harr Potter ",
+      "bookPrice": 20007
     },
     {
-      "bookName": "Angular",
-      "bookPrice": 8000,
-      "id": 2
+      "id": 3,
+      "bookName": "HarRY PoTtER",
+      "bookPrice": 3000
+    },
+    {
+      "id": 4,
+      "bookName": "Man Called Ove",
+      "bookPrice": 4000
+    },
+    {
+      "id": 5,
+      "bookName": "Man Search for meaning",
+      "bookPrice": 5000
     }
   ]
 }

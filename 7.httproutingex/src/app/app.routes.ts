@@ -3,6 +3,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterbookComponent } from './components/registerbook/registerbook.component';
 import { ListbookComponent } from './components/listbook/listbook.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { SearchbookComponent } from './components/searchbook/searchbook.component';
 
 export const routes: Routes = [
     {
@@ -21,6 +22,10 @@ export const routes: Routes = [
         path : '',
         redirectTo : 'home',
         pathMatch : 'full'
+    },
+    {
+        path : 'searchbook',
+        component : SearchbookComponent
     },
     {
         path : '**', 

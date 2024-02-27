@@ -1,0 +1,116 @@
+<h2>--------Template Driven Form---------------</h2>
+<form (ngSubmit) = "onSubmit(bookForm.form)" #bookForm=ngForm>
+
+    <div class = 'form-group'>
+        <label for="bookId">
+            Book Id:    
+        <input type="text" 
+            [(ngModel)]="book.id" 
+            name="id" 
+            required
+            id="bookId"
+            #id="ngModel"
+            class = 'form-control'/>
+        </label>
+         
+        <div [hidden]="id.valid||id.pristine"
+           class = 'alert alert-danger'>
+               BookId cannot be empty.
+        </div>
+
+    </div>
+
+    <div class = 'form-group'>
+        <label for="bookName">
+            Book Name :    
+
+            <!--Giving name is compulsory-->
+        <input type="text" 
+            [(ngModel)]="book.bookName" 
+            name="bookName"  
+            minlength="3"
+            pattern="^[a-zA-Z_ ]+$"
+            required
+            id="bookName"
+            #bookName="ngModel"
+            class = 'form-control'/>
+        </label>
+
+         
+           <div [hidden]="bookName.valid||bookName.pristine"
+           class = 'alert alert-danger'>
+               Book Name is invalid
+               <div>
+
+                  @if(bookName.errors?.['required'])
+                  {
+                    Book name is required
+                  }
+                  @if(bookName.errors?.['minlength'])
+                  {
+                    Book name should have minLength = {{bookName.errors?.['minlength'] | json}}
+                  }
+                  @if(bookName.errors?.['pattern'])
+                 {
+                    Pattern not met....{{bookName.errors?.['pattern']  | json}}
+                    
+                 }
+
+               </div>
+           </div>
+
+
+
+    </div>
+
+    <div class = 'form-group'>
+        <label for="bookPrice">
+            Book Price :  
+        <input type="text" 
+            [(ngModel)]="book.bookPrice" 
+            name="bookPrice" 
+            required
+            id="bookPrice"
+            #bookPrice="ngModel"
+            class = 'form-control'/>
+        </label>
+
+         
+           <div [hidden]="bookPrice.valid||bookPrice.pristine"
+           class = 'alert alert-danger'>
+               Book Price cannot be empty.
+           </div>
+          
+
+    </div>
+
+
+    <div class = 'form-group'>
+        <input 
+        type = 'submit'
+        class = 'btn btn-success'
+        [disabled] = "!bookForm.form.valid"
+        value = 'Add Book'
+        >
+
+    </div>
+
+    <!-- {{bookForm.form | json}} -->
+    <p>Id-value => {{id.value}}, Id-valid => {{id.valid}}</p>
+    <br>
+
+    <p>BookName-value => {{bookName.value}}, BookName-valid => {{bookName.valid}}</p>
+    <p>BookName-pristine => {{bookName.pristine}}</p>
+    <p>BookName-touched => {{bookName.touched}}</p>
+    <p>BookName-dirty => {{bookName.dirty}}</p>
+
+    <br>
+    <p>BookPrice-value => {{bookPrice.value}}, BookPrice-valid => {{bookPrice.valid}}</p>
+    <br>
+
+    <p>Form-value => {{bookForm.value | json}}, Form-valid => {{bookForm.valid}}</p>
+
+    <p>Book => {{book | json}}</p>
+
+    
+</form>

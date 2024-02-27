@@ -1,0 +1,59 @@
+
+<h3>Book List</h3>
+<button (click)="fetchBooks()">Fetch Books</button>
+<button (click) = "fetchBooks1()">Fetch Books async</button>
+<!-- Async => {{bookService.getAll() | async}} -->
+<p>BookList at start => {{$startBookList | async | json}}</p>
+
+@if ($bookList != null)
+{
+<p>BookList on click => {{$bookList | async | json}}</p>
+}
+
+
+@if (bookList.length > 0)
+{
+  <input [(ngModel)]="searchText" placeholder="search text goes here"><br>
+
+  <label for = 'price'>Filter By Price : </label>
+  <input id = 'price' type="range" [(ngModel)] = 'price' min="0" max="5000" step = '100'><span> {{price}}</span>
+
+  <br><br>
+<table>
+  <tr>
+    <th>Book Id</th>
+    <th>Book Name</th>
+    <th>Book Price</th>
+  </tr>
+
+  <!-- <input type = 'text' [(ngMm)] -->
+  @for (book of bookList | bookFilter: searchText | priceFilter : price; track book.id) {
+  <tr>
+   
+    <td>{{book.id}}</td>
+    <td>{{book.bookName}}</td>
+    <td>{{book.bookPrice}}</td>
+     <td><button (click)= 'deleteBook(book.id)'>Delete</button></td>
+    <td><button (click) = 'populateEdittedBook(book)'>Edit</button></td>
+  </tr>
+
+  }
+
+</table>
+}
+<!--====================================================================================================================-->
+@if(isEditting)
+{
+<h3>Edit Form</h3>
+
+<label for='bookName'>Book Name : </label>
+<input id='bookName' type='text' [(ngModel)] = 'edittedBook.bookName'>
+
+<label for='bookPrice'>Book Price : </label>
+<input id='bookPrice' type='number' [(ngModel)] = 'edittedBook.bookPrice'>
+
+<button (click) = 'editBook()'>Save</button>
+<button (click) = 'changeEditStatus(false)'>Cancel</button>
+}
+
+<!--====================================================================================================================-->
