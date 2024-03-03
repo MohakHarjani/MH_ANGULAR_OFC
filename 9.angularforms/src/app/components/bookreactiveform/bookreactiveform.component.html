@@ -1,1 +1,35 @@
-<p>bookreactiveform works!</p>
+<form [formGroup]="bookForm" novalidate>
+
+    <div class="form-group">
+        <label class="center-block">Book Id:
+            <input type='number' class="form-control" formControlName="bookId">
+        </label>
+        <div  [hidden]="bookForm.get('bookId')?.status=='VALID'" class="alert alert-danger">
+            Book Id is not valid......{{bookForm.get('bookId')?.errors | json}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="center-block">Book Name:
+            <input type='text' class="form-control" formControlName="bookName">
+        </label>
+        <div  [hidden]="bookForm.get('bookName')?.status=='VALID'" class="alert alert-danger">
+            Book Name is not valid.....{{bookForm.get('bookName')?.errors | json}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="center-block">Book Price:
+            <input type='number' class="form-control" formControlName="bookPrice">
+        </label>
+        <div  [hidden]="bookForm.get('bookPrice')?.status=='VALID'" class="alert alert-danger">
+            Book Price is not valid...{{bookForm.get('bookPrice')?.errors | json}}
+        </div>
+    </div>
+
+    <button [disabled]='bookForm.status!="VALID"' (click)="bookSubmit()">Submit</button>
+    <div [hidden]="bookForm.status=='VALID'" class="alert alert-danger">
+        FORM IS INVALID!
+    </div>
+
+</form>

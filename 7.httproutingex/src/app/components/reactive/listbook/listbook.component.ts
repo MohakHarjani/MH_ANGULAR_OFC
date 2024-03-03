@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
-import { Book } from '../../model/Book';
+
 import { FormsModule } from '@angular/forms';
-import { BookdaoService } from '../../services/bookdao.service';
+
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
+import { Book } from '../../../model/Book';
+import { BookdaoService } from '../../../services/bookdao.service';
 
 
 @Component({
-    selector: 'app-listbook',
-    standalone: true,
-    templateUrl: './listbook.component.html',
-    styleUrl: './listbook.component.css',
-    imports: [CommonModule, FormsModule]
+  selector: 'app-listbook2',
+  standalone: true,
+  templateUrl: './listbook.component.html',
+  styleUrl: './listbook.component.css',
+  imports: [CommonModule, FormsModule]
 })
-export class ListbookComponent {
+export class ListbookComponent2 {
 
   bookList: Book[];
   bookService: BookdaoService;
@@ -25,35 +27,31 @@ export class ListbookComponent {
     this.bookList = [];
     this.isEditting = false;
 
-    
-
-   
 
     bookService.getAll().subscribe({
-      next : (res : Book[])=>{
+      next: (res: Book[]) => {
 
 
         // console.log("Response for getAll() " + res);
         this.bookList = res;
 
 
-        for (let book of this.bookList)
-        {
+        for (let book of this.bookList) {
           console.log(book)
         }
         this.isEditting = false;
         this.edittedBook = new Book();
 
-      }, 
-      error : (error)=>{
-        
+      },
+      error: (error) => {
+
         console.log("Cannot get All books : (")
 
       }
     })
 
 
-   
+
 
   }
   // delBook(b:Book)
@@ -66,42 +64,42 @@ export class ListbookComponent {
   //     })
   //   })
 
-  
+
   // }
   deleteBook(bookId: number): void {
     console.log("BookId = " + bookId);
-    this.bookService.delete(bookId).subscribe((res)=>{
+    this.bookService.delete(bookId).subscribe((res) => {
 
       console.log('Book with bookId  ' + bookId + " deleted successfully");
 
-      this.bookService.getAll().subscribe((res)=>{
+      this.bookService.getAll().subscribe((res) => {
 
         this.bookList = res;
-  
-      }); 
+
+      });
 
     })
     //fetch again after delete
     //updated the class prop, re-render it
-    
+
   }
   // //========================================================================================================
-  editBook(): void {;
+  editBook(): void {
+    ;
     this.bookService.update(this.edittedBook.id, this.edittedBook)
-    .subscribe((res)=>{
+      .subscribe((res) => {
 
-      this.bookService.getAll().subscribe((res)=>{
-        this.bookList = res;
+        this.bookService.getAll().subscribe((res) => {
+          this.bookList = res;
+        });
+
       });
-
-    });
 
     this.isEditting = false;
 
- 
+
   }
-  populateEdittedBook (currBook : Book)
-  {
+  populateEdittedBook(currBook: Book) {
     this.edittedBook = new Book(currBook.id, currBook.bookName, currBook.bookPrice);
     this.isEditting = true;
   }
@@ -109,12 +107,12 @@ export class ListbookComponent {
     this.isEditting = newStatus;
   }
   // //=======================================================================================================
-   fetchBooks(): void {
+  fetchBooks(): void {
     this.bookService.getAll().subscribe({
-      next : (res)=>{
+      next: (res) => {
 
         this.bookList = res;
-        
+
       }
     });
 

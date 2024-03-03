@@ -1,24 +1,9 @@
 {
   "books": [
     {
-      "id": 2,
-      "bookName": "Harr Potter ",
-      "bookPrice": 20007
-    },
-    {
-      "id": 3,
-      "bookName": "HarRY PoTtER",
-      "bookPrice": 3000
-    },
-    {
-      "id": 4,
-      "bookName": "Man Called Ove",
-      "bookPrice": 4000
-    },
-    {
-      "id": 5,
-      "bookName": "Man Search for meaning",
-      "bookPrice": 5000
+      "id": 1,
+      "bookName": "Alphabets",
+      "bookPrice": 102
     }
   ]
 }

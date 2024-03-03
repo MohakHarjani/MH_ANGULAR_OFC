@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-import { Book } from '../../model/Book';
 import { FormsModule } from '@angular/forms';
-import { BookdaoService } from '../../services/bookdao.service';
+import { BookdaoService } from '../../../services/bookdao.service';
 import { Router } from '@angular/router';
+import { Book } from '../../../model/Book';
 
 @Component({
   selector: 'app-registerbook',

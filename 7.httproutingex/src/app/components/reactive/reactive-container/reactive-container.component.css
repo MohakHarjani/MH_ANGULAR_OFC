@@ -1,11 +1,9 @@
 .navbar {
     display: flex;
     justify-content: space-evenly;
-    background-color: aqua;
-    font-size: 20px;
+    font-size: 18px;
 }
 
-h1 {
+h2 {
     text-align: center;
-    color: blue;
 }

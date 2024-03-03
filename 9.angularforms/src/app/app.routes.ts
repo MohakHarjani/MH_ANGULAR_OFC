@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { BooktemplatedrivenformComponent } from './components/booktemplatedrivenform/booktemplatedrivenform.component';
+import { EmpReactiveComponent } from './components/empreactiveform/emp-reactive.component';
 import { BookreactiveformComponent } from './components/bookreactiveform/bookreactiveform.component';
+
 
 export const routes: Routes = [
     {
@@ -8,7 +10,11 @@ export const routes: Routes = [
         component : BooktemplatedrivenformComponent
     },
     {
-        path : 'reactive',
+        path : 'empreactive',
+        component : EmpReactiveComponent
+    },
+    {
+        path : 'bookreactive',
         component : BookreactiveformComponent
     }
 ];
