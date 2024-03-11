@@ -1,0 +1,21 @@
+<div id = 'listBookContainer'>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Book Id</th>
+                <th>Book Name</th>
+                <th>Book Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (book of bookList; track book.getBookId()) 
+            {
+                <td>{{book.getBookId()}}</td>
+                <td>{{book.getBookName()}}</td>
+                <td>{{book.getBookPrice()}}</td>
+            }
+        </tbody>
+    </table>
+
+</div>
